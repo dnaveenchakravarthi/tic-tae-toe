@@ -1,0 +1,20 @@
+body{
+    background-color: aquamarine;
+}
+.container{
+    width:30%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    row-gap: 10px;
+    column-gap: 10px;
+
+}
+#cell1,#cell2,#cell3,#cell4,#cell5,#cell6,#cell7,#cell8,#cell9{
+    height:100px;
+    width:100px;
+    background-color: antiquewhite;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
