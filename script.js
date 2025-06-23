@@ -1,177 +1,61 @@
-function restart(){
-    window.location="index.html"
+ let p = "o";
+let game = true;
+let w = document.getElementById("winner");
+
+function handleCellClick(id) {
+  let cell = document.getElementById(id);
+
+  if (!game || cell.innerHTML !== "") return;
+
+  cell.innerHTML = p;
+  checkWin();
+
+  if (game) {
+    p = p === "o" ? "x" : "o";
+  }
 }
- let p="o"
- let w=document.getElementById("winner")
- let game=true
 
-function cell1(){
-    let d=document.getElementById("cell1")
-   if(game==true) { 
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
+function checkWin() {
+  const c = [];
+  for (let i = 1; i <= 9; i++) {
+    c[i] = document.getElementById("cell" + i).innerHTML;
+  }
 
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p="o"
-     }
-   }
+  if (
+    (c[1] === p && c[2] === p && c[3] === p) ||
+    (c[4] === p && c[5] === p && c[6] === p) ||  
+    (c[7] === p && c[8] === p && c[9] === p) ||
+    (c[1] === p && c[4] === p && c[7] === p) ||
+    (c[2] === p && c[5] === p && c[8] === p) ||
+    (c[3] === p && c[6] === p && c[9] === p) ||
+    (c[1] === p && c[5] === p && c[9] === p) ||
+    (c[3] === p && c[5] === p && c[7] === p)
+  ) {
+    w.innerHTML = p.toUpperCase() + " is the winner!";
+    game = false;
+    return;
+  }
+
+  // Check for draw
+  let draw = true;
+  for (let i = 1; i <= 9; i++) {
+    if (document.getElementById("cell" + i).innerHTML === "") {
+      draw = false;
+      break;
+    }
+  }
+
+  if (draw) {
+    w.innerHTML = "It's a draw!";
+    game = false;
+  }
 }
-function cell2(){
-    let d=document.getElementById("cell2")
-    if(game==true){
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
-         
 
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p='o'
-     }  
-   }
-}
-function cell3(){
-    let d=document.getElementById("cell3")
-    if(game==true){
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
-
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p="o"
-         
-     }
-   }
-}
-function cell4(){
-    let d=document.getElementById("cell4")
-    if(game==true){
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
-
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p="o"
-         
-     }
-   }
-}
-function cell5(){
-    let d=document.getElementById("cell5")
-    if(game==true){
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
-
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p="o"
-         
-     }
-   }
-}
-function cell6(){
-    let d=document.getElementById("cell6")
-    if(game==true){
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
-
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p="o"
-         
-     }
-   }
-}
-function cell7(){
-    let d=document.getElementById("cell7")
-    if(game==true){
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
-
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p="o"
-         
-     }
-   }
-}
-function cell8(){
-    let d=document.getElementById("cell8")
-    if(game==true){
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
-
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p="o"
-         
-     }
-   }
-}
-function cell9(){
-    let d=document.getElementById("cell9")
-    if(game==true){
-     if (p=="o"){
-        d.innerHTML="o";
-        checkwin()
-        p="x"
-
-     }
-     else{
-        d.innerHTML="x"
-        checkwin()
-        p="o"
-     }
-     }
-}
-  
-function checkwin(){
-   let c1=document.getElementById("cell1").innerHTML
-   let c2=document.getElementById("cell2").innerHTML
-   let c3=document.getElementById("cell3").innerHTML
-   let c4=document.getElementById("cell4").innerHTML
-   let c5=document.getElementById("cell5").innerHTML
-   let c6=document.getElementById("cell6").innerHTML
-   let c7=document.getElementById("cell7").innerHTML
-   let c8=document.getElementById("cell8").innerHTML
-   let c9=document.getElementById("cell9").innerHTML
-
-   if ((c1==p&&c2==p&&c3==p)||(c4==p&&c5==p&&c3==c6)||(c7==p&&c8==p&&c9==p)||(c1==p&&c4==p&&c7==p)||(c2==p&&c5==p&&c8==p)||(c3==p&&c6==p&&c9==p)||(c1==p&&c5==p&&c9==p)||(c3==p&&c5==p&&c7==p)){
-      w.innerHTML= p +"he is the winner"
-      game=false
-   }
-    
-     
+function restart() {
+  p = "o";
+  game = true;
+  w.innerHTML = "";
+  for (let i = 1; i <= 9; i++) {
+    document.getElementById("cell" + i).innerHTML = "";
+  }
 }
