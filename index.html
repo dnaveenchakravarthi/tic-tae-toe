@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TicToe Game</title>
-    <link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TicToe Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <center>
-        <h1>TicToe Game</h1>
-        <div class="container"   >
-            <div id="cell1" onclick="cell1()"></div>
-            <div id="cell2" onclick="cell2()"></div>
-            <div id="cell3" onclick="cell3()"></div>
-            <div id="cell4" onclick="cell4()"></div>
-            <div id="cell5" onclick="cell5()"></div>
-            <div id="cell6" onclick="cell6()"></div>
-            <div id="cell7" onclick="cell7()"></div>
-            <div id="cell8" onclick="cell8()"></div>
-            <div id="cell9" onclick="cell9()"></div>
+  <center>
+    <h1>TicToe Game</h1>
+    <div class="container">
+      <div id="cell1" onclick="handleCellClick('cell1')"></div>
+      <div id="cell2" onclick="handleCellClick('cell2')"></div>
+      <div id="cell3" onclick="handleCellClick('cell3')"></div>
+      <div id="cell4" onclick="handleCellClick('cell4')"></div>
+      <div id="cell5" onclick="handleCellClick('cell5')"></div>
+      <div id="cell6" onclick="handleCellClick('cell6')"></div>
+      <div id="cell7" onclick="handleCellClick('cell7')"></div>
+      <div id="cell8" onclick="handleCellClick('cell8')"></div>
+      <div id="cell9" onclick="handleCellClick('cell9')"></div>
+    </div>
+    <br><br>
+    <button onclick="restart()">Restart</button>
+  </center>
+  <p id="winner" style="text-align:center; font-size: 20px;"></p>
 
-        </div>
-        <br>
-        <br>
-        <button onclick="restart()">Restart</button>
-    </center>
-    <p id="winner"></p>
-    <script src="script.js"></script>
-    
+  <script src="script.js"></script>
 </body>
 </html>
